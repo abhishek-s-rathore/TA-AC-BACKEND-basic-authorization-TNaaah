@@ -31,24 +31,26 @@
       <div class="container flex justify-between align-center">
         <a class="logo" href="/"> <span>B</span>logs</a>
 
+        <% if(user){ %>
         <nav class="flex justify-between align-end">
-          <a class="user" href="/users/signup">Abhishek Rathore</a>
+          <a class="user" href="/blogs/dashBoard"><%= user.name %></a>
           <a style="margin-right: 0.5rem" href="/blogs"
             ><button class="btn btn-primary">Go Back</button></a
           >
-          <a href="/users/signin"
+          <a href="/users/logout"
             ><button class="btn btn-primary">Log Out</button></a
           >
         </nav>
-
-        <!-- <nav class="flex justify-between align-end">
-          <a style="margin-right: 0.5rem" href="/blogs"
+        <% }else{ %>
+        <nav class="flex justify-between align-end">
+          <a style="margin-right: 0.5rem" href="/users/signin"
             ><button class="btn btn-primary">Sign In</button></a
           >
-          <a href="/users/signin"
+          <a href="/users/signup"
             ><button class="btn btn-primary">Sign Up</button></a
           >
-        </nav> -->
+        </nav>
+        <% } %>
       </div>
     </header>
     <!--Main-->
@@ -56,7 +58,7 @@
       <section class="container flex justify-between align-start">
         <article class="flex-60">
           <h1><%= blog.title %></h1>
-          <cite>~<%= blog.author %></cite>
+          <cite>~<%= blog.author.name %></cite>
           <p><%= blog.description %></p>
           <div class="feedbacks flex justify-between align-center">
             <div>
@@ -91,12 +93,15 @@
             </div>
           </div>
           <div class="handlers">
+            <% if(isOwner){ %>
             <a href="/blogs/<%=blog._id%>/edit"
               ><button class="btn btn-primary">Edit</button></a
             >
             <a href="/blogs/<%=blog._id%>/delete"
               ><button class="btn btn-primary">Delete</button></a
             >
+            <% } %>
+
             <a href="/blogs"
               ><button class="btn btn-primary">Go Back</button></a
             >
@@ -105,18 +110,27 @@
 
         <div class="flex-38 commentSection">
           <div class="comments">
-            <% if(blog.comments.length){ blog.comments.forEach(comment=>{ %>
+            <% if(blog.comments.length>0){ blog.comments.forEach(comment=>{ %>
             <p class="comment flex justify-between align-center">
               <%= comment.content %>
               <span>
-                <a style="color: black" href="/comments/<%= comment._id %>/edit"
-                  ><i style="color: black" class="far fa-edit edit"></i
-                ></a>
-                <a
-                  style="color: black"
-                  href="/comments/<%= comment._id %>/delete"
-                  ><i style="color: black" class="far fa-trash-alt delete"></i
-                ></a>
+                <cite style="color: rgb(230, 151, 4); font-size: 0.8rem"
+                  >~<%= comment.writer.name %></cite
+                >
+                <% if(user && user.id && comment.writer.id === user.id){ %>
+                <span>
+                  <a
+                    style="color: black"
+                    href="/comments/<%= comment._id %>/edit"
+                    ><i style="color: black" class="far fa-edit edit"></i
+                  ></a>
+                  <a
+                    style="color: black"
+                    href="/comments/<%= comment._id %>/delete"
+                    ><i style="color: black" class="far fa-trash-alt delete"></i
+                  ></a>
+                </span>
+                <% } %>
               </span>
             </p>
             <% });}else{ %>

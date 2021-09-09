@@ -1,12 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/User');
-// var auth = require('../middlewares/auth');
-
-router.get('/', function (req, res, next) {
-  console.log(req.sessions);
-  res.render('dashboard');
-});
+var auth = require('../middlewares/auth');
 
 router.get('/signup', function (req, res, next) {
   var error = req.flash('error') || null;
@@ -59,12 +54,10 @@ router.post('/signin', function (req, res, next) {
   });
 });
 
-// router.use(auth.loggedInUser);
-
-router.get('/logout', (req, res, next) => {
+router.get('/logout', auth.loggedInUser, (req, res, next) => {
   req.session.destroy();
   res.clearCookie('connect.sid');
-  res.redirect('/users/login');
+  res.redirect('/users/signin');
 });
 
 module.exports = router;

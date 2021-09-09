@@ -9,9 +9,9 @@ var userSchema = new Schema(
     email: { type: String, required: true, unique: true, match: /@/ },
     phone: { type: String, required: true, minlength: 10, maxlength: 13 },
     password: { type: String, required: true, minlength: 5 },
-    blogs: [
-      { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Blog' },
-    ],
+    // blogs: [
+    //   { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Blog' },
+    // ],
   },
   { timestamps: true }
 );

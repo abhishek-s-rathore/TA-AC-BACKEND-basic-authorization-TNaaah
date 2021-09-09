@@ -9,7 +9,7 @@ var commentSchema = new Schema(
       required: true,
       ref: 'Blog',
     },
-    author: {
+    writer: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User',
