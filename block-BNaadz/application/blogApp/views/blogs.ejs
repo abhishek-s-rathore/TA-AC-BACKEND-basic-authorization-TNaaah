@@ -31,24 +31,26 @@
       <div class="container flex justify-between align-center">
         <a class="logo" href="/"> <span>B</span>logs</a>
 
+        <% if(user){ %>
         <nav class="flex justify-between align-end">
-          <a class="user" href="/users/signup">Abhishek Rathore</a>
-          <a style="margin-right: 0.5rem" href="/blogs"
+          <a class="user" href="/blogs/dashBoard"><%= user.name %></a>
+          <a style="margin-right: 0.5rem" href="/"
             ><button class="btn btn-primary">Go Back</button></a
           >
-          <a href="/users/signin"
+          <a href="/users/logout"
             ><button class="btn btn-primary">Log Out</button></a
           >
         </nav>
-
-        <!-- <nav class="flex justify-between align-end">
-          <a style="margin-right: 0.5rem" href="/blogs"
+        <% }else{ %>
+        <nav class="flex justify-between align-end">
+          <a style="margin-right: 0.5rem" href="/users/signin"
             ><button class="btn btn-primary">Sign In</button></a
           >
-          <a href="/users/signin"
+          <a href="/users/signup"
             ><button class="btn btn-primary">Sign Up</button></a
           >
-        </nav> -->
+        </nav>
+        <% } %>
       </div>
     </header>
     <!--Main-->
@@ -63,7 +65,7 @@
         <% if(blogs.length){ blogs.forEach(blog=>{ %>
         <article class="blog">
           <h2><%= blog.title %></h2>
-          <cite>~<%= blog.author %> </cite>
+          <cite>~<%= blog.author.name %> </cite>
           <p><%= blog.description.substr(0,200) %>...</p>
           <a href="/blogs/<%= blog._id %>">
             <button class="btn btn-primary">Read</button>

@@ -450,6 +450,13 @@ header .user:hover {
   color: orange;
 }
 
+.blogs h1 {
+  color: orange;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
 .blogs .blog {
   border: 1px solid black;
   width: 100%;

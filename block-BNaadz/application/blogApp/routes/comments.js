@@ -1,12 +1,14 @@
 var express = require('express');
+const app = require('../app');
 var router = express.Router();
-// var auth = require('../middlewares/auth');
+var auth = require('../middlewares/auth');
 
 var Blog = require('../models/Blog');
 var Comment = require('../models/Comment');
 
-// Comments
+router.use(auth.loggedInUser);
 
+// Comments
 router.get('/:id/delete', function (req, res, next) {
   var cid = req.params.id;
   Comment.findByIdAndRemove(cid, (err, comment) => {
@@ -39,6 +41,6 @@ router.post('/:id', function (req, res, next) {
   });
 });
 
-// router.use(auth.loggedInUser);
+router.use(auth.loggedInUser);
 
 module.exports = router;

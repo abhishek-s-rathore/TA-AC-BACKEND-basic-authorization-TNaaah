@@ -17,7 +17,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var blogsRouter = require('./routes/blogs');
 var commentsRouter = require('./routes/comments');
-// var auth = require('./middlewares/auth');
+var auth = require('./middlewares/auth');
 
 // Connecting To Database
 mongoose.connect(
@@ -64,6 +64,7 @@ app.use(
 app.use(flash());
 
 // Using The Logged In User Information
+app.use(auth.userInfo);
 
 // Using The Routes
 app.use('/', indexRouter);
