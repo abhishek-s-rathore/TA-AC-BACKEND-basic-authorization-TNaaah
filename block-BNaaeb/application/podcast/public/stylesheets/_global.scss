@@ -1,0 +1,102 @@
+/*Global*/
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1480px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.padding {
+  padding: 5rem 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Images */
+.font-0 {
+  font-size: 0;
+}
+
+.full-width {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Headings */
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.66rem;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  margin: 0.35rem;
+  outline: none;
+  border: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 255, 255, 0.6),
+    -1px -1px 2px rgba(0, 255, 255, 0.6);
+}
+
+.btn-primary {
+  color: black;
+  background-color: rgb(87, 188, 162);
+}
+
+.btn-secondary {
+  color: black;
+  background-color: cyan;
+  padding: 0.4rem 0.8rem;
+}
+
+.btn-secondary:hover {
+  padding: 0.36rem 0.8rem;
+  box-shadow: none;
+  border: 1px solid black;
+}
