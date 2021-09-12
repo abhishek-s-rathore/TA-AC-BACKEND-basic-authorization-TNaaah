@@ -1,0 +1,92 @@
+.signup {
+  text-align: center;
+  h1 {
+    color: rgb(87, 188, 162);
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem auto;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: red;
+    font-style: italic;
+  }
+  form {
+    box-sizing: content-box;
+    margin: 0 auto;
+    width: 40%;
+    padding: 1.5rem;
+    border: 1px solid black;
+
+    input {
+      width: 100%;
+      border: 1px solid black;
+      background-color: white;
+      height: 2rem;
+      margin-bottom: 1rem;
+      padding: 0.25rem;
+      &:focus {
+        border: none;
+        outline: 2px solid rgb(87, 188, 162);
+      }
+      &::placeholder {
+        color: black;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      border: 1px solid black;
+      background-color: white;
+      margin-bottom: 1rem;
+      padding: 0.25rem;
+      &:focus {
+        border: none;
+        outline: 2px solid rgb(87, 188, 162);
+      }
+      &::placeholder {
+        color: black;
+        font-size: 0.65rem;
+      }
+    }
+
+    select {
+      width: 100%;
+      border: 1px solid black;
+      background-color: white;
+      height: 2rem;
+      margin-bottom: 1rem;
+      &:focus {
+        border: none;
+        outline: 2px solid rgb(87, 188, 162);
+      }
+    }
+    select option {
+      background: rgb(87, 188, 162);
+      padding: 1rem;
+      &:hover {
+        background: rgb(87, 188, 162);
+      }
+    }
+
+    .submit {
+      margin-bottom: 0;
+      &:hover {
+        border: 2px solid rgb(87, 188, 162);
+        background-color: rgb(87, 188, 162);
+      }
+    }
+    label {
+      display: block;
+      text-align: left;
+      font-size: 1rem;
+      &:hover {
+        color: rgb(87, 188, 162);
+      }
+    }
+    &:hover {
+      border: 1px solid rgb(87, 188, 162);
+    }
+  }
+}

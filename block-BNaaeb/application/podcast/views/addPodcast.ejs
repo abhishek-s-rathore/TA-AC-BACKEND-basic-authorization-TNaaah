@@ -1,0 +1,28 @@
+<% include partials/header %>
+<!--Main-->
+<main class="signup container">
+  <h1>Add Poscast</h1>
+  <form action="/podcasts/new" method="POST">
+    <input type="text" name="title" placeholder="Title..." />
+    <textarea
+      name="description"
+      rows="8"
+      placeholder="Description..."
+    ></textarea>
+    <input
+      type="text"
+      name="categories"
+      placeholder="Categories(Separated by commas)..."
+    />
+
+    <label for="cover">Cover Image</label>
+    <input id="cover" type="file" name="cover" placeholder="Cover..." />
+
+    <label for="track">Podcast Track</label>
+    <input id="track" type="file" name="audioTrack" placeholder="Track..." />
+
+    <input class="submit" type="submit" value="Add Podcast" />
+  </form>
+</main>
+
+<% include partials/footer %>
